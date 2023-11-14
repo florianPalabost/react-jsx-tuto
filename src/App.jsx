@@ -1,5 +1,7 @@
 import { useState } from 'react';
-import './App.css';
+// import './App.css';
+import { Box, Container, CssBaseline } from '@mui/material';
+import MyButton from './components/MyButton/MyButton';
 
 function App() {
     let showText = true;
@@ -49,47 +51,59 @@ function App() {
     };
 
     return (
-        <>
-            <h1>JSX</h1>
-            We can define a custom component
-            <Hello name="Toto" color="red" />
-            {/* display 'you found me' if showText is true */}
-            {showText && <p>you found me !</p>}
-            {/* Ternary operator is also possible */}
-            {showText ? <p>showText is true</p> : <p>showText is false</p>}
-            <h2>Display a list of todos</h2>
-            <ul>
-                {/* Need to set key attribute that should be unique on each array item (don't use index) this key is used to
+        <CssBaseline>
+            <Container>
+                <Box>
+                    <h1>JSX</h1>
+                    We can define a custom component
+                    <Hello name="Toto" color="red" />
+                    {/* display 'you found me' if showText is true */}
+                    {showText && <p>you found me !</p>}
+                    {/* Ternary operator is also possible */}
+                    {showText ? <p>showText is true</p> : <p>showText is false</p>}
+                    <h2>Display a list of todos</h2>
+                    <ul>
+                        {/* Need to set key attribute that should be unique on each array item (don't use index) this key is used to
                 avoid the recreation of the node in the DOM if the item is moved */}
-                {todos.map((todo) => (
-                    <li key={todo}>{todo}</li>
-                ))}
-            </ul>
-            <h2>A component with children</h2>
-            <ChildComponentCustom>
-                <p>Child component</p>
-            </ChildComponentCustom>
-            <hr />
-            <h1>Use State</h1>
-            <div>
-                <p>Compteur: {counter}</p>
-                <p>Person age : {person.age}</p>
-                <button onClick={incrementCounter}>Increment Counter {counter}</button>
-                <button onClick={incrementAge}>Increment Age</button>
-            </div>
-            <hr />
-            <h1>Formulaires</h1>
-            <form onSubmit={handleSubmit}>
-                {/* with value only the input will be readonly (& with an error) => need to add onChange event => Controlled field => only if want to display the input value directly */}
-                {/* <input type="text" name="name" value={name} onChange={handleOnChangeName} /> */}
-                <input type="text" name="name" />
-                {/* <button onClick={reset} type="button">
+                        {todos.map((todo) => (
+                            <li key={todo}>{todo}</li>
+                        ))}
+                    </ul>
+                    <h2>A component with children</h2>
+                    <ChildComponentCustom>
+                        <p>Child component</p>
+                    </ChildComponentCustom>
+                    <hr />
+                    <h1>Use State</h1>
+                    <div>
+                        <p>Compteur: {counter}</p>
+                        <p>Person age : {person.age}</p>
+                        <button onClick={incrementCounter}>Increment Counter {counter}</button>
+                        <button onClick={incrementAge}>Increment Age</button>
+                    </div>
+                    <hr />
+                    <h1>Formulaires</h1>
+                    <form onSubmit={handleSubmit}>
+                        {/* with value only the input will be readonly (& with an error) => need to add onChange event => Controlled field => only if want to display the input value directly */}
+                        {/* <input type="text" name="name" value={name} onChange={handleOnChangeName} /> */}
+                        <input type="text" name="name" />
+                        {/* <button onClick={reset} type="button">
                     Reset
                 </button> */}
-                <button>Submit</button>
-            </form>
-            {/* {name && <p>name : {name}</p>} */}
-        </>
+                        <button>Submit</button>
+                    </form>
+                    {/* {name && <p>name : {name}</p>} */}
+                    <hr />
+                    <h1>Flux Données</h1>
+                    <MyBtn onClick={incrementCounter} disabled={counter === 10}>
+                        Custom Increment
+                    </MyBtn>
+                    <MyButton onClick={incrementCounter} disabled={counter === 10} sx={{ marginTop: 2 }}>
+                        Test Inc
+                    </MyButton>
+                </Box>
+            </Container>
+        </CssBaseline>
     );
 }
 
@@ -110,6 +124,14 @@ function Hello({ name, color }) {
 // the slot(=children) is accesibled as props.children or children if destructured
 function ChildComponentCustom({ children }) {
     return <div className="child">{children}</div>;
+}
+
+function MyBtn({ onClick, children, disabled }) {
+    return (
+        <button disabled={disabled} onClick={onClick}>
+            {children}
+        </button>
+    );
 }
 
 export default App;

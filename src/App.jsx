@@ -26,8 +26,31 @@ function App() {
         setPerson({ ...person, age: person.age + 1 });
     };
 
+    // Controlled field
+    // const [name, setName] = useState('');
+
+    // // in react the change event is called after input value changed whereas the "basic" event onChange is called on focus out
+    // const handleOnChangeName = (event) => {
+    //     // called controled field
+    //     setName(event.target.value);
+    // };
+
+    // const reset = () => {
+    //     setName('');
+    // };
+
+    // with this method we don't have to re render the component on each change => uncontrolled field
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(e.target);
+        console.log(formData);
+        // setName('');
+    };
+
     return (
         <>
+            <h1>JSX</h1>
             We can define a custom component
             <Hello name="Toto" color="red" />
             {/* display 'you found me' if showText is true */}
@@ -54,6 +77,18 @@ function App() {
                 <button onClick={incrementCounter}>Increment Counter {counter}</button>
                 <button onClick={incrementAge}>Increment Age</button>
             </div>
+            <hr />
+            <h1>Formulaires</h1>
+            <form onSubmit={handleSubmit}>
+                {/* with value only the input will be readonly (& with an error) => need to add onChange event => Controlled field => only if want to display the input value directly */}
+                {/* <input type="text" name="name" value={name} onChange={handleOnChangeName} /> */}
+                <input type="text" name="name" />
+                {/* <button onClick={reset} type="button">
+                    Reset
+                </button> */}
+                <button>Submit</button>
+            </form>
+            {/* {name && <p>name : {name}</p>} */}
         </>
     );
 }

@@ -1,9 +1,30 @@
+import { useState } from 'react';
 import './App.css';
 
 function App() {
     let showText = true;
-
     const todos = ['todo 1', 'todo 2', 'todo 3'];
+
+    // will re render on update of the state (= call to setCounter)
+    const [counter, setCounter] = useState(0);
+    const [person, setPerson] = useState({
+        name: 'Toto',
+        age: 18
+    });
+
+    console.log('rendered');
+    const incrementCounter = () => {
+        setCounter(counter + 1);
+    };
+
+    const incrementAge = () => {
+        // Will not work because person is  and react will not detect changes (here will works because of previous setCounter)
+        // person.age++;
+        // setPerson(person);
+
+        // need to redefine a person & update the property
+        setPerson({ ...person, age: person.age + 1 });
+    };
 
     return (
         <>
@@ -25,6 +46,14 @@ function App() {
             <ChildComponentCustom>
                 <p>Child component</p>
             </ChildComponentCustom>
+            <hr />
+            <h1>Use State</h1>
+            <div>
+                <p>Compteur: {counter}</p>
+                <p>Person age : {person.age}</p>
+                <button onClick={incrementCounter}>Increment Counter {counter}</button>
+                <button onClick={incrementAge}>Increment Age</button>
+            </div>
         </>
     );
 }

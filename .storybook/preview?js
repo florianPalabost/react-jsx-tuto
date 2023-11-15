@@ -1,0 +1,9 @@
+import React from 'react';
+import { addDecorator } from '@storybook/react';
+import { ThemeProvider } from 'emotion-theming';
+import theme from '../src/theme';
+
+// Add any global decorators or providers here
+addDecorator((story) => (
+  <ThemeProvider theme={theme}>{story()}</ThemeProvider>
+));

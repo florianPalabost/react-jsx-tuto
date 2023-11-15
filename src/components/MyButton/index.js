@@ -1,3 +1,3 @@
-import AppNav from './AppNav';
+import MyButton from './MyButton';
 
-export default AppNav;
+export default MyButton;

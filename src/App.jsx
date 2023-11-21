@@ -4,6 +4,7 @@ import { Box, Container, CssBaseline } from '@mui/material';
 import Tutos from './components/Tutos';
 import ProductTable from './components/ProductTable/ProductTable';
 import SearchBar from './components/SearchBar';
+import UseEffect from './components/UseEffect';
 
 export default function App() {
     const products = [
@@ -82,6 +83,11 @@ export default function App() {
                         onSearchChange={setSearch}
                     />
                     <ProductTable products={visibleProducts} />
+                </Box>
+                <hr />
+                <Box>
+                    <h1>Hooks</h1>
+                    <UseEffect />
                 </Box>
             </Container>
         </CssBaseline>

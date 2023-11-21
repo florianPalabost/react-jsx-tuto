@@ -5,6 +5,7 @@ import Tutos from './components/Tutos';
 import ProductTable from './components/ProductTable/ProductTable';
 import SearchBar from './components/SearchBar';
 import UseEffect from './components/Hooks/UseEffect';
+import UseMemo from './components/Hooks/UseMemo';
 
 export default function App() {
     const products = [
@@ -88,6 +89,7 @@ export default function App() {
                 <Box>
                     <h1>Hooks</h1>
                     <UseEffect />
+                    <UseMemo />
                 </Box>
             </Container>
         </CssBaseline>

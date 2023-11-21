@@ -1,6 +1,6 @@
 import { Box } from '@mui/material';
 import { useEffect, useState } from 'react';
-import MyInput from '../Forms/MyInput';
+import MyInput from '../../Forms/MyInput';
 
 function EditTitle() {
     const [title, setTitle] = useState('');
@@ -47,5 +47,10 @@ function EditTitle() {
 }
 
 export default function UseEffect() {
-    return <EditTitle />;
+    return (
+        <Box>
+            <h2>UseEffect</h2>
+            <EditTitle />
+        </Box>
+    );
 }

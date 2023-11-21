@@ -4,7 +4,7 @@ import { Box, Container, CssBaseline } from '@mui/material';
 import Tutos from './components/Tutos';
 import ProductTable from './components/ProductTable/ProductTable';
 import SearchBar from './components/SearchBar';
-import UseEffect from './components/UseEffect';
+import UseEffect from './components/Hooks/UseEffect';
 
 export default function App() {
     const products = [

@@ -26,7 +26,6 @@ export default function MyInput({ type, value, onChange, ...props }) {
         default:
             break;
     }
-    debugger;
 
     return <Box>{inputWanted}</Box>;
 }

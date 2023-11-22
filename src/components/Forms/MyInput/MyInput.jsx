@@ -1,4 +1,6 @@
 import { Box, TextField } from '@mui/material';
+import MyCheckbox from '../MyCheckbox';
+import MySelect from '../MySelect';
 
 /**
  * Renders an input component.

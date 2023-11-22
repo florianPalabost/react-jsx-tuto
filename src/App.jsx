@@ -7,6 +7,7 @@ import SearchBar from './components/SearchBar';
 import UseEffect from './components/Hooks/UseEffect';
 import UseMemo from './components/Hooks/UseMemo';
 import UseRef from './components/Hooks/UseRef';
+import CustomHook from './components/Hooks/CustomHook';
 
 export default function App() {
     const products = [
@@ -92,7 +93,9 @@ export default function App() {
                     <UseEffect />
                     <UseMemo />
                     <UseRef />
+                    <CustomHook />
                 </Box>
+                <hr />
             </Container>
         </CssBaseline>
     );

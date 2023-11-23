@@ -8,6 +8,7 @@ import UseEffect from './components/Hooks/UseEffect';
 import UseMemo from './components/Hooks/UseMemo';
 import UseRef from './components/Hooks/UseRef';
 import CustomHook from './components/Hooks/CustomHook';
+import Memoisation from './components/Memoisation';
 
 export default function App() {
     const products = [
@@ -96,6 +97,9 @@ export default function App() {
                     <CustomHook />
                 </Box>
                 <hr />
+                <Box>
+                    <Memoisation />
+                </Box>
             </Container>
         </CssBaseline>
     );

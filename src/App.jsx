@@ -12,6 +12,7 @@ import Memoisation from './components/Memoisation';
 import HandleErrors from './components/HandleErrors';
 import { ErrorBoundary } from 'react-error-boundary';
 import Dumb from './components/Dumb';
+import UseReducer from './components/Hooks/UseReducer';
 
 export default function App() {
     const products = [
@@ -111,6 +112,7 @@ export default function App() {
                     <UseMemo />
                     <UseRef />
                     <CustomHook />
+                    <UseReducer />
                 </Box>
                 <hr />
                 <Box>

@@ -9,6 +9,8 @@ import UseMemo from './components/Hooks/UseMemo';
 import UseRef from './components/Hooks/UseRef';
 import CustomHook from './components/Hooks/CustomHook';
 import Memoisation from './components/Memoisation';
+import HandleErrors from './components/HandleErrors';
+import { ErrorBoundary } from 'react-error-boundary';
 
 export default function App() {
     const products = [
@@ -99,6 +101,13 @@ export default function App() {
                 <hr />
                 <Box>
                     <Memoisation />
+                </Box>
+                <hr />
+                <Box>
+                    {/* use Error boundary to not crash app when an error is thrown */}
+                    {/* <ErrorBoundary fallback={<p style={{ color: 'red' }}>Something went wrong ...</p>}>
+                        <HandleErrors />
+                    </ErrorBoundary> */}
                 </Box>
             </Container>
         </CssBaseline>

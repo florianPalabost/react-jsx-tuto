@@ -16,7 +16,7 @@ export default function CustomHook() {
     useDocumentTitle(name ? 'Edit ' + name : null);
 
     const { data: users, loading, errors } = useFetch('https://jsonplaceholder.typicode.com/users');
-    debugger;
+
     return (
         <Box>
             <h2>Custom Hook</h2>

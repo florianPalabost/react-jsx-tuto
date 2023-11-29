@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { Suspense, lazy, useRef, useState } from 'react';
 // import './App.css';
 import { Box, Container, CssBaseline } from '@mui/material';
 import Tutos from './components/Tutos';
@@ -11,6 +11,7 @@ import CustomHook from './components/Hooks/CustomHook';
 import Memoisation from './components/Memoisation';
 import HandleErrors from './components/HandleErrors';
 import { ErrorBoundary } from 'react-error-boundary';
+import Dumb from './components/Dumb';
 
 export default function App() {
     const products = [
@@ -72,6 +73,19 @@ export default function App() {
 
         return true;
     });
+
+    const [loadLazy, setLoadLazy] = useState(false);
+    const handleChangeSelect = (comp) => {
+        console.log('changed');
+        if (comp === 'lazy') {
+            setLoadLazy(true);
+            return lazy(() => import('./components/Lazy'));
+        } else {
+            setLoadLazy(false);
+            return <Dumb />;
+        }
+    };
+
     return (
         <CssBaseline>
             <Container>
@@ -108,6 +122,15 @@ export default function App() {
                     {/* <ErrorBoundary fallback={<p style={{ color: 'red' }}>Something went wrong ...</p>}>
                         <HandleErrors />
                     </ErrorBoundary> */}
+                </Box>
+                <hr />
+                <Box>
+                    {/* <p>Choose component lazy loaded :</p>
+                    <select name="sel" id="sel" onChange={(e) => handleChangeSelect(e.target.value)}>
+                        <option value="lazy">Lazy</option>
+                        <option value="dumb">Dumb</option>
+                    </select>
+                    <Suspense fallback={<p>Loading...</p>}></Suspense> */}
                 </Box>
             </Container>
         </CssBaseline>

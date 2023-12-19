@@ -13,6 +13,7 @@ import HandleErrors from './components/HandleErrors';
 import { ErrorBoundary } from 'react-error-boundary';
 import Dumb from './components/Dumb';
 import UseReducer from './components/Hooks/UseReducer';
+import UseContext from './components/Hooks/UseContext/UseContext';
 
 export default function App() {
     const products = [
@@ -113,6 +114,7 @@ export default function App() {
                     <UseRef />
                     <CustomHook />
                     <UseReducer />
+                    <UseContext />
                 </Box>
                 <hr />
                 <Box>
